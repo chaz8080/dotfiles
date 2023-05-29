@@ -8,6 +8,12 @@
 - brewfile:
     - brew/Brewfile
 
+- shell:
+    - command: bash ./scripts/firefox/set_css.sh
+      stdin: true
+      stdout: true
+      description: Configuring Firefox CSS
+
 - link:
     ~/.config/nvim:
       create: true
