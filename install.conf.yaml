@@ -1,0 +1,15 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+
+- clean: ["~"]
+
+- brewfile:
+    - brew/Brewfile
+
+- link:
+    ~/.config/nvim:
+      create: true
+      glob: true
+      path: nvim
