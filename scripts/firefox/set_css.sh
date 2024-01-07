@@ -17,5 +17,6 @@ done
 echo "firefox css is g2g"
 echo "don't forget to visit about:config and set"
 echo "toolkit.legacyUserProfileCustomizations.stylesheets = true"
+echo "visit about:addons and load the treestyletab.css to remove the + icon for new tabs"
 
 exit 0
