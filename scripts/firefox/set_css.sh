@@ -15,7 +15,7 @@ for d in $HOME/Library/Application\ Support/Firefox/Profiles/*/ ; do
 done
 
 echo "Firefox CSS is g2g"
-echo "Don't forget to visit `about:config` and set"
+echo "Don't forget to visit about:config and set"
 echo "toolkit.legacyUserProfileCustomizations.stylesheets = true"
 
 exit 0
