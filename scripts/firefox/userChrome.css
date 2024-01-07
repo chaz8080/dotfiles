@@ -5,3 +5,7 @@
 #sidebar-header {
 	display: none;
 }
+
+#tabbar .after-tabs {
+  display: none !important;
+}
