@@ -1,4 +1,4 @@
-# .dotfiles
+# dotfiles
 
 This repo makes use of [dotbot](https://github.com/anishathalye/dotbot)
 
