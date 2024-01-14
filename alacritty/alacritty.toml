@@ -1,0 +1,98 @@
+# [shell]
+# program = "tmux"
+# args = ["new-session"]
+
+[font]
+size = 16.0
+
+[window]
+opacity = 0.9
+
+# Alacritty Color Configuration - Pastel/Catppuccino Theme
+
+[colors]
+# Default colors
+[colors.primary]
+background = '#1e1e28' # Soft, dark background (charcoal)
+foreground = '#cdd6f4' # Light foreground (soft lavender)
+
+# Cursor colors
+[colors.cursor]
+text = '#1e1e28'
+cursor = '#cdd6f4'
+
+# Normal colors
+[colors.normal]
+black = '#1e1e28'
+red = '#f28fad'     # Pastel red
+green = '#abe9b3'   # Pastel green
+yellow = '#fae3b0'  # Pastel yellow
+blue = '#96cdfb'    # Pastel blue
+magenta = '#dcbdfb' # Pastel magenta
+cyan = '#89dceb'    # Pastel cyan
+white = '#cdd6f4'
+
+# Bright colors
+[colors.bright]
+black = '#575268'
+red = '#f28fad'
+green = '#abe9b3'
+yellow = '#fae3b0'
+blue = '#96cdfb'
+magenta = '#dcbdfb'
+cyan = '#89dceb'
+white = '#f5e0dc'
+
+# Dimmed colors (optional, for a more nuanced look)
+[colors.dim]
+black = '#575268'
+red = '#f2cdcd'
+green = '#a6e3a1'
+yellow = '#f9e2af'
+blue = '#91ddff'
+magenta = '#d7aefb'
+cyan = '#95e6cb'
+white = '#f5e0dc'
+
+[cursor]
+unfocused_hollow = true
+
+[cursor.style]
+shape = "Beam"
+
+[cursor.vi_mode_style]
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font.normal]
+family = "Menlo"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Command"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "ToggleViMode"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window.dimensions]
+columns = 120
+lines = 30
+
+[window.padding]
+x = 5
+y = 5

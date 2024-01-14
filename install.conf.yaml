@@ -15,7 +15,13 @@
       description: Configuring Firefox CSS
 
 - link:
+    # ~/.theme.tmux: .theme.tmux
+    # ~/.tmux.conf: .tmux.conf
     ~/.config/nvim:
       create: true
       glob: true
       path: nvim
+    ~/.config/alacritty:
+      create: true
+      glob: true
+      path: alacritty
