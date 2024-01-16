@@ -1,8 +1,9 @@
 version: "3"
 
 tasks:
-  clear-neovim-cache:
+  nuke-neovim:
     cmds:
       - rm -rf ~/.cache/nvim/*
       - rm -rf ~/.local/share/nvim/*
+      - rm -rf ~/.local/state/nvim/*
     desc: Clear the cache for Neovim
