@@ -25,3 +25,7 @@
       create: true
       glob: true
       path: alacritty
+    ~/.logseq/config:
+      create: true
+      glob: true
+      path: logseq
