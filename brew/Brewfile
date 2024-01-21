@@ -27,3 +27,4 @@ cask "ngrok"
 # cask "slack"
 # cask "zoom"
 cask "alacritty"
+# cask "arc" # cool browser, but no tree view (╯°□°）╯︵ ┻━┻
