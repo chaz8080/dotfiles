@@ -29,3 +29,4 @@
       create: true
       glob: true
       path: logseq
+    ~/.config/karabiner/karabiner.json: karabiner/karabiner.json
