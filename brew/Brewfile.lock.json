@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "go-task/tap": {
-        "revision": "233710ddf63ab6365f381847018ec7689a1c4ce3"
+        "revision": "2a86716dcd7643ced89c8c9befb1f874b5810ef3"
       },
       "homebrew/bundle": {
         "revision": "d44243fe191e962fce60cbf8e25b6f2e3c1248b3"
@@ -632,7 +632,7 @@
         }
       },
       "go-task/tap/go-task": {
-        "version": "3.23.0",
+        "version": "3.33.1",
         "bottle": false
       }
     },
@@ -716,11 +716,11 @@
         "macOS": "13.4"
       },
       "sonoma": {
-        "HOMEBREW_VERSION": "4.2.4",
+        "HOMEBREW_VERSION": "4.2.5",
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
         "CLT": "15.1.0.0.1.1700200546",
-        "Xcode": "15.2",
+        "Xcode": "15.1",
         "macOS": "14.2.1"
       }
     }
