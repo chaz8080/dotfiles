@@ -5,22 +5,26 @@
 
 - clean: ["~"]
 
-- brewfile:
-    - brew/Brewfile
+# todo: make this conditional
+# - shell:
+#     - command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#       stdin: true
+#       stdout: true
+#       description: Install ohmyzsh
 
-- shell:
-    - command: bash ./scripts/firefox/set_css.sh
-      stdin: true
-      stdout: true
-      description: Configuring Firefox CSS
+# - shell:
+#     - command: bash ./scripts/firefox/set_css.sh
+#       stdin: true
+#       stdout: true
+#       description: Configuring Firefox CSS
 
 - link:
     # ~/.theme.tmux: .theme.tmux
     # ~/.tmux.conf: .tmux.conf
-    ~/.config/nvim:
-      create: true
-      glob: true
-      path: nvim
+    # ~/.config/nvim:
+    #   create: true
+    #   glob: true
+    #   path: nvim
     ~/.config/alacritty:
       create: true
       glob: true
@@ -33,3 +37,9 @@
       create: true
       glob: true
       path: karabiner
+
+- brewfile:
+    - brew/Brewfile
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
