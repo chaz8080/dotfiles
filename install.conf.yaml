@@ -5,13 +5,31 @@
 
 - clean: ["~"]
 
-# todo: make this conditional
-# - shell:
-#     - command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-#       stdin: true
-#       stdout: true
-#       description: Install ohmyzsh
+- shell:
+    - command: |
+        if ! command -v brew &> /dev/null; then
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        fi
+      stdin: true
+      stdout: true
+      description: Install brew if not already installed
 
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+
+- brewfile:
+    - brew/Brewfile
+
+- shell:
+    - command: |
+        if ! grep -q "ZSH_THEME" ~/.zshrc; then
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        fi
+      stdin: true
+      stdout: true
+      description: Install ohmyzsh if not already installed
+
+# todo: this is not working, but given onetime setup, maybe I'll fix some day
 # - shell:
 #     - command: bash ./scripts/firefox/set_css.sh
 #       stdin: true
@@ -37,9 +55,3 @@
       create: true
       glob: true
       path: karabiner
-
-- brewfile:
-    - brew/Brewfile
-
-- shell:
-    - [git submodule update --init --recursive, Installing submodules]
