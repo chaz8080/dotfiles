@@ -47,6 +47,10 @@
       create: true
       glob: true
       path: alacritty
+    ~/.config/ghostty:
+      create: true
+      glob: true
+      path: ghostty
     ~/.logseq/config:
       create: true
       glob: true

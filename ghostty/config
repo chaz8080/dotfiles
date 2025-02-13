@@ -1,0 +1,12 @@
+theme = GitHub-Dark-High-Contrast
+background-opacity = 0.5
+background-blur = true
+maximize = true
+# maximize seems to be broken, but maxing out the window size works :)
+window-height = 999999
+window-width = 99999
+window-inherit-font-size = true
+font-size = 18.0
+
+
+
