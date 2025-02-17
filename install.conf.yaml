@@ -65,3 +65,4 @@
       create: true
       glob: true
       path: karabiner
+    ~/.continue/config.json: continue/config.json
