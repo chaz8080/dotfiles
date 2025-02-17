@@ -29,6 +29,12 @@
       stdout: true
       description: Install ohmyzsh if not already installed
 
+- shell:
+    - command: pipx install mlx-lm
+      stdin: true
+      stdout: true
+      description: Install mlx-lm if not already installed
+
 # todo: this is not working, but given onetime setup, maybe I'll fix some day
 # - shell:
 #     - command: bash ./scripts/firefox/set_css.sh
