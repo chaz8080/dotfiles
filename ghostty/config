@@ -6,6 +6,6 @@ maximize = true
 window-height = 999999
 window-width = 99999
 window-inherit-font-size = true
-font-size = 16.0
+font-size = 18.0
 scrollback-limit = 1000000000
 window-save-state = always
