@@ -1,5 +1,5 @@
-theme = GitHub-Dark-High-Contrast
-background-opacity = 0.5
+theme = GitHub Dark High Contrast
+background-opacity = 0.4
 background-blur = true
 maximize = true
 # maximize seems to be broken, but maxing out the window size works :)
