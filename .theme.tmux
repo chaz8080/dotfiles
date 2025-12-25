@@ -28,6 +28,7 @@ show_web_reachable="$(tmux_get @tmux_power_show_web_reachable false)"
 prefix_highlight_pos=$(tmux_get @tmux_power_prefix_highlight_pos)
 time_format=$(tmux_get @tmux_power_time_format '%I:%M%p')
 date_format=$(tmux_get @tmux_power_date_format '%m/%d/%y')
+weather_location=$(tmux_get @tmux_power_weather_location 'Columbus')
 # short for Theme-Colour
 TC=$(tmux_get '@tmux_power_theme' '#e95420')
 case $TC in
@@ -95,8 +96,7 @@ tmux_set @prefix_highlight_output_suffix "#[fg=$TC]#[bg=$BG]$right_arrow_icon"
 
 #     
 # Left side of status bar
-tmux_set status-left-bg "$G04"
-tmux_set status-left-fg "G12"
+tmux_set status-left-style "fg=$G12,bg=$G04"
 tmux_set status-left-length 150
 user=$(whoami)
 LS="#[fg=$G04,bg=$TC,bold] $user_icon $user #[fg=$TC,bg=$G07,nobold]$right_arrow_icon"
@@ -111,10 +111,9 @@ fi
 tmux_set status-left "$LS"
 
 # Right side of status bar
-tmux_set status-right-bg "$BG"
-tmux_set status-right-fg "G12"
+tmux_set status-right-style "fg=$G12,bg=$BG"
 tmux_set status-right-length 150
-WEATHER='#(curl -s wttr.in/Columbus\?format\="%%c%%t")'
+WEATHER='#(curl -m 2 -s wttr.in/'"$weather_location"'\?format\="%%c%%t")'
 RS="$WEATHER #[fg=$G06]$left_arrow_icon#[fg=$TC,bg=$G06] $time_icon $time_format #[fg=$TC,bg=$G06]$left_arrow_icon#[fg=$G04,bg=$TC] $date_icon $date_format "
 if "$show_download_speed"; then
     RS="#[fg=$G05,bg=$BG]$left_arrow_icon#[fg=$TC,bg=$G05] $download_speed_icon #{download_speed} $RS"
@@ -140,9 +139,6 @@ tmux_set window-status-separator ""
 
 # Window status alignment
 tmux_set status-justify left
-
-# Current window status
-tmux_set window-status-current-status "fg=$TC,bg=$BG"
 
 # Pane border
 tmux_set pane-border-style "fg=$G07,bg=default"
