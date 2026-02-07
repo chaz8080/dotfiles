@@ -31,15 +31,24 @@
 
 - shell:
     - command: |
-        if [ ! -d ~/github/obra/superpowers ]; then
-          mkdir -p ~/github/obra
-          git clone https://github.com/obra/superpowers.git ~/github/obra/superpowers
+        REPO="$HOME/github/obra/superpowers"
+        if [ ! -d "$REPO" ]; then
+          mkdir -p "$(dirname "$REPO")"
+          git clone https://github.com/obra/superpowers.git "$REPO"
         else
-          git -C ~/github/obra/superpowers pull --ff-only
+          git -C "$REPO" fetch --all --prune
+          if [ -n "$(git -C "$REPO" status --porcelain)" ]; then
+            echo "Local changes in $REPO; skipping automatic pull. Please inspect and update manually."
+            exit 0
+          fi
+          git -C "$REPO" merge --ff-only @{u} || {
+            echo "Fast-forward update failed; please run 'git -C $REPO fetch && git -C $REPO merge --ff-only @{u}' manually."
+            exit 0
+          }
         fi
       stdin: false
       stdout: true
-      description: Clone or update Superpowers
+      description: Clone or safely update Superpowers
 # todo: this is not working, but given onetime setup, maybe I'll fix some day
 # - shell:
 #     - command: bash ./scripts/firefox/set_css.sh
@@ -71,7 +80,40 @@
       glob: true
       path: karabiner
     ~/.continue/config.json: continue/config.json
-    ~/.config/opencode/opencode.json: opencode/opencode.json
-    ~/.config/opencode/skills/k8s-workflows: { path: opencode/skills/k8s-workflows, create: true }
-    ~/.config/opencode/skills/superpowers: { path: ~/github/obra/superpowers/skills, create: true }
-    ~/.config/opencode/plugins/superpowers.js: { path: ~/github/obra/superpowers/.opencode/plugins/superpowers.js, create: true }
+    # AI tools configuration (OpenCode, Copilot, Claude-based tools)
+    ~/.config/opencode/opencode.json: ai-tools/opencode.json
+    ~/.config/opencode/skills/k8s-workflows: { path: ai-tools/skills/k8s-workflows, create: true }
+    ~/.config/opencode/skills/superpowers: { path: $HOME/github/obra/superpowers/skills, create: true }
+    ~/.config/opencode/plugins/superpowers.js: { path: $HOME/github/obra/superpowers/.opencode/plugins/superpowers.js, create: true }
+    # Custom commands/prompts - shared between OpenCode and Copilot
+    ~/.config/opencode/commands/reflect.prompt.md: { path: ai-tools/prompts/reflect.prompt.md, create: true }
+    ~/Library/Application Support/Code/User/prompts/reflect.prompt.md: { path: ai-tools/prompts/reflect.prompt.md, create: true }
+    # Superpowers skills - individual symlinks for each skill (required for Copilot/Claude discovery)
+    ~/.copilot/skills/brainstorming: { path: $HOME/github/obra/superpowers/skills/brainstorming, create: true }
+    ~/.copilot/skills/dispatching-parallel-agents: { path: $HOME/github/obra/superpowers/skills/dispatching-parallel-agents, create: true }
+    ~/.copilot/skills/executing-plans: { path: $HOME/github/obra/superpowers/skills/executing-plans, create: true }
+    ~/.copilot/skills/finishing-a-development-branch: { path: $HOME/github/obra/superpowers/skills/finishing-a-development-branch, create: true }
+    ~/.copilot/skills/receiving-code-review: { path: $HOME/github/obra/superpowers/skills/receiving-code-review, create: true }
+    ~/.copilot/skills/requesting-code-review: { path: $HOME/github/obra/superpowers/skills/requesting-code-review, create: true }
+    ~/.copilot/skills/subagent-driven-development: { path: $HOME/github/obra/superpowers/skills/subagent-driven-development, create: true }
+    ~/.copilot/skills/systematic-debugging: { path: $HOME/github/obra/superpowers/skills/systematic-debugging, create: true }
+    ~/.copilot/skills/test-driven-development: { path: $HOME/github/obra/superpowers/skills/test-driven-development, create: true }
+    ~/.copilot/skills/using-git-worktrees: { path: $HOME/github/obra/superpowers/skills/using-git-worktrees, create: true }
+    ~/.copilot/skills/using-superpowers: { path: $HOME/github/obra/superpowers/skills/using-superpowers, create: true }
+    ~/.copilot/skills/verification-before-completion: { path: $HOME/github/obra/superpowers/skills/verification-before-completion, create: true }
+    ~/.copilot/skills/writing-plans: { path: $HOME/github/obra/superpowers/skills/writing-plans, create: true }
+    ~/.copilot/skills/writing-skills: { path: $HOME/github/obra/superpowers/skills/writing-skills, create: true }
+    ~/.claude/skills/brainstorming: { path: $HOME/github/obra/superpowers/skills/brainstorming, create: true }
+    ~/.claude/skills/dispatching-parallel-agents: { path: $HOME/github/obra/superpowers/skills/dispatching-parallel-agents, create: true }
+    ~/.claude/skills/executing-plans: { path: $HOME/github/obra/superpowers/skills/executing-plans, create: true }
+    ~/.claude/skills/finishing-a-development-branch: { path: $HOME/github/obra/superpowers/skills/finishing-a-development-branch, create: true }
+    ~/.claude/skills/receiving-code-review: { path: $HOME/github/obra/superpowers/skills/receiving-code-review, create: true }
+    ~/.claude/skills/requesting-code-review: { path: $HOME/github/obra/superpowers/skills/requesting-code-review, create: true }
+    ~/.claude/skills/subagent-driven-development: { path: $HOME/github/obra/superpowers/skills/subagent-driven-development, create: true }
+    ~/.claude/skills/systematic-debugging: { path: $HOME/github/obra/superpowers/skills/systematic-debugging, create: true }
+    ~/.claude/skills/test-driven-development: { path: $HOME/github/obra/superpowers/skills/test-driven-development, create: true }
+    ~/.claude/skills/using-git-worktrees: { path: $HOME/github/obra/superpowers/skills/using-git-worktrees, create: true }
+    ~/.claude/skills/using-superpowers: { path: $HOME/github/obra/superpowers/skills/using-superpowers, create: true }
+    ~/.claude/skills/verification-before-completion: { path: $HOME/github/obra/superpowers/skills/verification-before-completion, create: true }
+    ~/.claude/skills/writing-plans: { path: $HOME/github/obra/superpowers/skills/writing-plans, create: true }
+    ~/.claude/skills/writing-skills: { path: $HOME/github/obra/superpowers/skills/writing-skills, create: true }
