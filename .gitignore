@@ -1,2 +1,6 @@
 .DS_Store
 .vscode
+
+# Dolt database files (added by bd init)
+.dolt/
+*.db
