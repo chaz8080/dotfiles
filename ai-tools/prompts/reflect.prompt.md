@@ -98,7 +98,7 @@ Present your analysis as a structured, actionable plan:
 | Category    | Pain Point          | Severity | Source File                          | Root Cause                                       |
 | :---------- | :------------------ | :------- | :----------------------------------- | :----------------------------------------------- |
 | Error       | SQL syntax error    | High     | `run-integration-tests.prompt.md:42` | Schema mismatch (`users.age` vs `users.dob`)     |
-| Friction    | Manual pod deletion | Medium   | `k8s-workflows/SKILL.md:78`          | Missing cleanup step in workflow                 |
+| Friction    | Manual cleanup step | Medium   | `deploy.prompt.md:78`                | Missing cleanup step in workflow                 |
 | Performance | Slow file search    | Low      | Current session                      | Read entire directory instead of targeted search |
 
 **Severity Guide**:
@@ -132,16 +132,15 @@ WHERE table_name = 'users' AND column_name = 'date_of_birth';
 SELECT date_of_birth FROM users WHERE id = ?
 ```
 
-**2. Update `k8s-workflows/SKILL.md`** (Line 78)
+**2. Update `[affected-file]`** (Line XX)
 
 > Add automatic cleanup step after workflow completion.
 
 **Add this section:**
 
-```bash
+```
 # Cleanup
-echo "Cleaning up resources..."
-kubectl delete pod $POD_NAME --grace-period=30
+[cleanup commands appropriate to the workflow]
 ```
 
 **Priority 2: Medium Severity Issues**

@@ -31,7 +31,6 @@ bash scripts/macos/defaults.sh  # Apply macOS system preferences (untested — r
 | `logseq/` | `~/.logseq/config/` | Note-taking with Ollama integration |
 | `continue/` | `~/.continue/config.json` | Continue.dev AI coding assistant |
 | `ai-tools/opencode.json` | `~/.config/opencode/opencode.json` | OpenCode config |
-| `ai-tools/skills/` | `~/.config/opencode/skills/` | Custom AI skills (e.g., k8s-workflows) |
 | `ai-tools/prompts/` | OpenCode commands + VS Code prompts | Shared prompt files |
 
 ### AI Tool Skill Wiring

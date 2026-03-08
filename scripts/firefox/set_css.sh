@@ -3,15 +3,17 @@
 # visit `about:config`
 # set toolkit.legacyUserProfileCustomizations.stylesheets = true
 
+set -e
+
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # add the css to all profiles
-for d in $HOME/Library/Application\ Support/Firefox/Profiles/*/ ; do
+for d in "$HOME/Library/Application Support/Firefox/Profiles/"*/ ; do
     echo "creating chrome directory if it doesn't exist: $d"
-    mkdir -p chrome
-   
+    mkdir -p "$d/chrome"
+
     echo "copying userChrome.css"
-    cp $SCRIPT_DIR/userChrome.css $d/chrome
+    cp "$SCRIPT_DIR/userChrome.css" "$d/chrome"
 done
 
 echo "firefox css is g2g"

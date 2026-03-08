@@ -82,7 +82,6 @@
     ~/.continue/config.json: continue/config.json
     # AI tools configuration (OpenCode, Copilot, Claude-based tools)
     ~/.config/opencode/opencode.json: ai-tools/opencode.json
-    ~/.config/opencode/skills/k8s-workflows: { path: ai-tools/skills/k8s-workflows, create: true }
     ~/.config/opencode/skills/superpowers: { path: $HOME/github/obra/superpowers/skills, create: true }
     ~/.config/opencode/plugins/superpowers.js: { path: $HOME/github/obra/superpowers/.opencode/plugins/superpowers.js, create: true }
     # Custom commands/prompts - shared between OpenCode and Copilot
