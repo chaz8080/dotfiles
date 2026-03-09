@@ -1,7 +1,8 @@
 #!/bin/bash
 
+set -e
+
 # link: https://github.com/pawelgrzybek/dotfiles/blob/master/setup-macos.sh
-# TODO: test this script to run...
 
 # Menu Bar Only > Spotlight > Don't Show in Menu Bar
 defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
@@ -71,7 +72,7 @@ defaults write com.apple.finder ShowPathbar -bool true
 # TODO:
 # always show bluetooth and audio in control center
 
-# Kill affected apps
+# Kill affected apps to apply changes
 for app in "Dock" "Finder"; do
-  killall "${app}" > /dev/null 2>&1
+  killall "${app}" 2>/dev/null || true
 done

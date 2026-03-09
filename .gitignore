@@ -1,5 +1,6 @@
 .DS_Store
 .vscode
+karabiner/automatic_backups/
 
 # Dolt database files (added by bd init)
 .dolt/
