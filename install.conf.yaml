@@ -56,12 +56,11 @@
 #       stdout: true
 #       description: Install mlx-lm if not already installed
 
-# todo: this is not working, but given onetime setup, maybe I'll fix some day
-# - shell:
-#     - command: bash ./scripts/firefox/set_css.sh
-#       stdin: true
-#       stdout: true
-#       description: Configuring Firefox CSS
+- shell:
+    - command: bash ./scripts/firefox/set_css.sh
+      stdin: true
+      stdout: true
+      description: Configuring Firefox CSS (userChrome + user.js)
 
 - link:
     # ~/.theme.tmux: .theme.tmux
